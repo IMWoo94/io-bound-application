@@ -1,12 +1,9 @@
 package class101.foo.io;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-=======
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
->>>>>>> 31b92e0c34670ca33d212792ae5f4f1421d931e8
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +11,9 @@ import java.util.List;
 @RestController
 public class PostController {
 
-<<<<<<< HEAD
-=======
     private static Integer PAGE_SIZE = 20;
 
->>>>>>> 31b92e0c34670ca33d212792ae5f4f1421d931e8
+
     @Autowired
     PostRepository postRepository;
 
@@ -29,18 +24,6 @@ public class PostController {
     }
 
     // 2-1. 글 목록을 조회한다.
-<<<<<<< HEAD
-    @GetMapping("/posts")
-    public List<Post> getPostList() {
-        return postRepository.findAll();
-    }
-    
-    // 2-2 글 목록을 페이징하여 반환
-    
-    // 3. 글 번호로 조회
-    
-    // 4. 글 내용으로 검색 -> 해당 내용이 포함된 모든 글
-=======
 /*    @GetMapping("/posts")
     public List<Post> getPostList() {
         return postRepository.findAll();
@@ -67,7 +50,5 @@ public class PostController {
         List<Post> results = postRepository.findByContentContains(content);
         return results;
     }
-
->>>>>>> 31b92e0c34670ca33d212792ae5f4f1421d931e8
 
 }
