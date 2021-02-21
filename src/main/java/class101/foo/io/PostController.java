@@ -3,9 +3,9 @@ package class101.foo.io;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+//import org.springframework.data.domain.Page;
+//import org.springframework.data.domain.PageRequest;
+//import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,27 +13,27 @@ import java.util.List;
 @RestController
 public class PostController {
 
-    private static Integer PAGE_SIZE = 20;
+    //private static Integer PAGE_SIZE = 20;
 
 
     @Autowired
     PostRepository postRepository;
 
 
-    @Autowired
-    Producer producer;
+    //@Autowired
+    //Producer producer;
 
     @Autowired
     ObjectMapper objectMapper;
 
-    @Autowired
-    PostCacheService postCacheService;
+    //@Autowired
+    //PostCacheService postCacheService;
 
     // 1. 글을 작성한다.
     @PostMapping("/post")
     public Post createPost(@RequestBody Post post) throws JsonProcessingException {
-        String jsonPost = objectMapper.writeValueAsString(post);
-        producer.sendTo(jsonPost);
+        //String jsonPost = objectMapper.writeValueAsString(post);
+        //producer.sendTo(jsonPost);
         return post;
         //return postRepository.save(post);
     }
@@ -45,7 +45,7 @@ public class PostController {
     }*/
 
     // 2-2 글 목록을 페이징하여 반환
-    @GetMapping("/posts")
+    /*@GetMapping("/posts")
     public Page<Post> getPostList(@RequestParam(defaultValue = "1") Integer page) {
         if(page.equals(1)){
             return postCacheService.getFirstPostPage();
@@ -55,18 +55,19 @@ public class PostController {
             );
         }
 
-    }
+    }*/
 
     // 3. 글 번호로 조회
-    @GetMapping("/post/{id}")
+    /*@GetMapping("/post/{id}")
     public Post getPostId(@PathVariable("id") Long id){
         return postRepository.findById(id).get();
-    }
+    }*/
 
     // 4. 글 내용으로 검색 -> 해당 내용이 포함된 모든 글
     @GetMapping("/search")
     public List<Post> getPostContent(@RequestParam String content){
-        List<Post> results = postRepository.findByContentContains(content);
+        //List<Post> results = postRepository.findByContentContains(content);
+        List<Post> results = postRepository.findByContent(content);
         return results;
     }
 
