@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 @Data
 //@Entity(name = "post")
-@Document(indexName = "post_shard_8")
+@Document(indexName = "post_8_1")
 public class Post {
 /*    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_id_seq")
